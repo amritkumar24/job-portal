@@ -7,6 +7,10 @@
     <body>
         <%- include("partials/navbar") %>
 
+        <% if(lastVisit) { %>
+          <p>Last Visit: <%= lastVisit %></p>  
+        <% } %>
+        
         <%- body %>
 
         <footer>

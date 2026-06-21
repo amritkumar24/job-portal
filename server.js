@@ -3,6 +3,8 @@ import dotenv from "dotenv";
 dotenv.config();
 import session from "express-session";
 import expressLayouts from "express-ejs-layouts";
+import cookieParser from "cookie-parser";
+import lastVisit from "./middleware/lastVisit.middleware.js";
 
 import jobRoutes from "./routes/job.routes.js";
 import userRoutes from "./routes/user.routes.js";
@@ -20,6 +22,8 @@ app.use(
 );
 
 app.use(express.urlencoded({extended: true}));
+app.use(cookieParser());
+app.use(lastVisit);
 app.use(express.static("public"));
 app.use(expressLayouts);
 app.use((req, res, next) => {
