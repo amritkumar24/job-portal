@@ -1,4 +1,10 @@
-<nav>
-    <a href="/jobs">Jobs</a> |
-    <a href="/">Home</a>
-</nav>
+<a href="/">Home</a> 
+
+<% if(userName) { %>
+    <a href="/jobs">Jobs</a>
+    <a href="/logout">Logout</a>
+    <span> Welcome <%= userName %></span>
+<% } else { %>
+    <a href="/register">Register</a>
+    <a href="/login">Login</a>
+<% } %>

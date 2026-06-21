@@ -8,6 +8,7 @@ export const getHome = (req, res) => {
 };
 
 export const getJobs = (req, res) => {
+    console.log(req.session);
     const jobs = JobModel.getJobs();
 
     res.render("jobs", {
@@ -24,3 +25,4 @@ export const getJobDetails = (req, res) => {
         job
     })
 };
+
