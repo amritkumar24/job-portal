@@ -1,0 +1,22 @@
+<h1>Edit Job</h1>
+
+<form action="/jobs/<%= job.id %>/update" method="POST">
+    <div>
+        <label>Job Title</label>
+        <input type="text" name="title" value="<%= job.title %>">
+    </div>
+    
+    <div>
+        <lable>Company</lable>
+        <input type="text" name="company" value="<%= job.company %>">
+    </div>
+
+    <div>
+        <lable>Location</lable>
+        <input type="text" name="location" value="<%= job.location %>">
+    </div>
+
+    <button type="submit">
+        Update
+    </button>
+</form>

@@ -7,6 +7,14 @@
     <a href="/jobs/<%= job.id %>">
         View details
     </a>
+    <a href="/jobs/<%= job.id %>/edit">
+        Edit
+    </a>
+    <form action="/jobs/<%= job.id %>/delete" method="POST">
+        <button type="submit">
+            Delete
+        </button>
+    </form>
     <hr>
 <% }) %>
 
