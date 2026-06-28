@@ -1,14 +1,22 @@
 <h1>Recruiter Login form</h1>
 
+<% if(errors && errors.length > 0){ %> 
+    <ul>
+        <% errors.forEach((error) => { %>
+            <li><%= error.msg %></li>
+        <% }) %>
+    </ul>
+<% } %>
+
 <form action="/login" method="post">
     <div>
         <label>Email</label>
-        <input type="email" name="email" required>
+        <input type="email" name="email" value="<%= oldData ? oldData.email : '' %>" required>
     </div>
 
     <div>
         <label>Password</label>
-        <input type="password" name="password" required>
+        <input type="password" name="password" value="<%= oldData ? oldData.password : '' %>" required>
     </div>
 
     <button type="submit">

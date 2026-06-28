@@ -1,7 +1,11 @@
 import UserModel from "../models/user.model.js";
+import {validationResult} from "express-validator";
 
 export const getRegister = (req, res) => {
-    res.render("register");
+    res.render("register", {
+        errors: [],
+        oldData: '',
+    });
 }
 
 export const postRegister = (req, res) => {
@@ -18,13 +22,14 @@ export const postRegister = (req, res) => {
 
     UserModel.addUser(newUser);
 
-    console.log(UserModel.getUser());
-
     res.redirect("/login");
 }
 
 export const getLogin = (req, res) => {
-    res.render("login");
+    res.render("login", {
+        errors: [],
+        oldData: '',
+    });
 }
 
 export const postLogin = (req, res) => {

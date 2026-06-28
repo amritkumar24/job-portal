@@ -1,19 +1,27 @@
 <h1>Create new Job</h1>
 
-<form action="/jobs" method="POST">
+<% if(errors && errors.length > 0){ %>
+    <ul>
+        <% errors.forEach((error) => { %>
+        <li><%= error.msg %></li>
+        <% }) %>
+    </ul>  
+<%}%>
+
+<form action="/jobs/new" method="POST">
     <div>
         <label>Job Title</label>
-        <input type="text" name="title">
+        <input type="text" name="title" value="<%= oldData ? oldData.title : '' %>">
     </div>
 
     <div>
         <lable>Company</lable>
-        <input type="text" name="company">
+        <input type="text" name="company" value="<%= oldData ? oldData.company : '' %>">
     </div>
 
     <div>
         <label>Location</label>
-        <input type="text" name="location">
+        <input type="text" name="location" value="<%= oldData ? oldData.location : '' %>">
     </div>
 
     <button type="submit">

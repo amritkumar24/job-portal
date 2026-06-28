@@ -11,7 +11,7 @@ export const getJobs = (req, res) => {
     
     const recruiterId = req.session.userId;
 
-    const jobs = JobModel.getJobByRecruiterId(recruiterId);
+    const jobs = JobModel.getJobByRecruiterId(recruiterId) ;
 
     res.render("jobs", {
         jobs
@@ -29,7 +29,10 @@ export const getJobDetails = (req, res) => {
 };
 
 export const getNewJobForm = (req, res) => {
-    res.render("create-job");
+    res.render("create-job", {
+        errors: [],
+        oldData: '',
+    });
 }
 
 export const createJob = (req, res) => {
